@@ -1,0 +1,23 @@
+baseURL: https://sanny26.github.io/
+languageCode: en-us
+title: San's Archive
+theme: PaperMod
+description: "Explore Santhoshini's archive of projects, research, and professional activities in AI and computer vision."
+
+
+params:
+  homeInfoMode: true
+  homeInfoParams:
+    # Title: Hi there!
+    # Content: Thanks for visiting San's archive. This site showcases a snapshot of my academic and professional endeavors.
+    Content: Thanks for visiting San's archive.
+  socialIcons:
+    - name: "LinkedIn"
+      url: "https://linkedin.com/in/sgongidi"
+      icon: "linkedin"
+    - name: "Google Scholar"
+      url: "https://scholar.google.com/citations?user=OiI80VwAAAAJ&hl=en"
+      icon: "googlescholar"
+    - name: "Github"
+      url: "https://github.com/sanny26"
+      icon: "github"
