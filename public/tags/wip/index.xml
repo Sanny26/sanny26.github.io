@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>WIP on SG&#39;Log</title>
+    <link>http://localhost:1313/tags/wip/</link>
+    <description>Recent content in WIP on SG&#39;Log</description>
+    <generator>Hugo -- 0.138.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 05 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/wip/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Language-guided image tokenization</title>
+      <link>http://localhost:1313/posts/imtok/</link>
+      <pubDate>Wed, 05 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/imtok/</guid>
+      <description>&lt;figure&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/images/tok.png&#34;
+         alt=&#34;Tokenizer Teaser&#34; width=&#34;400&#34; height=&#34;300&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;This project aims to improve comression ratio by using language guidance in ViT-based image tokenizers. The goal is to evaluate and explore multimodal interactions needed between language and images needed for tokenization.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Real-time 3D Scene Reconstruction</title>
+      <link>http://localhost:1313/posts/mast3r/</link>
+      <pubDate>Wed, 05 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/mast3r/</guid>
+      <description>&lt;figure&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/images/robomast3r.png&#34;
+         alt=&#34;Robo 3D Teaser&#34; width=&#34;400&#34; height=&#34;300&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;This project aims to improve comression ratio by using language guidance in ViT-based image tokenizers. The goal is to evaluate and explore multimodal interactions needed between language and images needed for tokenization.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

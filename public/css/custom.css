@@ -1,0 +1,21 @@
+/* custom.css */
+
+/* Increase the width of the main content area */
+.container {
+    max-width: 1200px; /* Adjust this value as needed */
+}
+
+/* Optionally, adjust the wrapper for header and footer */
+.main-wrap {
+    padding: 0 20px; /* Adjust padding around the content */
+}
+
+.main-wrap {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.container {
+    padding-left: 10px;
+    padding-right: 10px;
+}
