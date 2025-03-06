@@ -1,0 +1,1 @@
+This project aims to improve comression ratio by using language guidance in ViT-based image tokenizers. The goal is to evaluate and explore multimodal interactions needed between language and images needed for tokenization.
