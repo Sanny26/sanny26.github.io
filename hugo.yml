@@ -1,15 +1,19 @@
 baseURL: https://sanny26.github.io/
 languageCode: en-us
-title: SG'Log
+title: San'ML
 theme: PaperMod
 description: "Explore Santhoshini's archive of projects, research, and professional activities in AI and computer vision."
 
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
 
 params:
   homeInfoMode: true
   homeInfoParams:
     # Title: Hi there!
-    # Content: Thanks for visiting San's archive. This site showcases a snapshot of my academic and professional endeavors.
+    # Content: Thanks for visiting San's archive. This showcases a snapshot of my academic and professional endeavors.
     Content: Thanks for visiting my studio! Reach out on my socials for any collaborations or brainstorming!
   socialIcons:
     - name: "LinkedIn"
@@ -23,3 +27,6 @@ params:
       icon: "github"
   customCSS: 
   - "css/custom.css"
+  defaultAppearance: dark
+  label:
+    text: ""

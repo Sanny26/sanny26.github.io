@@ -1,5 +1,21 @@
 /* custom.css */
 
+/* Change font to IBM Plex Mono */
+body {
+    font-family: "IBM Plex Mono", "IBM Plex Mono Fallback", monospace;
+    font-style: normal;
+}
+
+/* Apply IBM Plex Mono to all text elements */
+h1, h2, h3, h4, h5, h6,
+p, li, td, th, span, div,
+.post-content, .post-title, .post-description,
+.post-meta, .breadcrumbs, .pagination,
+.social-icons a, .page-header h1 {
+    font-family: "IBM Plex Mono", "IBM Plex Mono Fallback", monospace;
+    font-style: normal;
+}
+
 /* Increase the width of the main content area */
 .container {
     max-width: 1200px; /* Adjust this value as needed */

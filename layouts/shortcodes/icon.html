@@ -1,0 +1,7 @@
+{{- $icon_name := .Get 0 -}}
+{{- $size := .Get 1 | default "1em" -}}
+{{- $class := .Get 2 | default "" -}}
+
+<span class="theme-icon {{ $class }}" style="display: inline-block; width: {{ $size }}; height: {{ $size }}; vertical-align: middle;">
+    {{ partial "svg.html" (dict "name" $icon_name) }}
+</span>

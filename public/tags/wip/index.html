@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>WIP | SG&#39;Log</title>
+<title>WIP | San&#39;ML</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -57,6 +57,181 @@
 
     </style>
 </noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐙</text></svg>">
+
+
+<style>
+body {
+    font-family: "IBM Plex Mono", "IBM Plex Mono Fallback", monospace !important;
+    font-style: normal !important;
+    font-size: 0.9em !important;  
+}
+
+h1, h2, h3, h4, h5, h6,
+p, li, td, th, span, div,
+.post-content, .post-title, .post-description,
+.post-meta, .breadcrumbs, .pagination,
+.social-icons a, .page-header h1 {
+    font-family: "IBM Plex Mono", "IBM Plex Mono Fallback", monospace !important;
+    font-style: normal !important;
+}
+
+ 
+.logo a {
+    font-family: "IBM Plex Mono", "IBM Plex Mono Fallback", monospace !important;
+    font-size: 0;  
+}
+
+
+.logo a::before {
+     
+    content: "🐙";
+    content: "San";
+    color: #ff6b6b !important;
+    font-size: 1.2rem; 
+}
+
+.logo a::after {
+    content: "'ML";
+    color: var(--content) !important; 
+    font-size: 1.2rem; 
+}
+
+
+ 
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.project-entry {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    flex-direction: row-reverse;  
+}
+
+.project-thumbnail {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+}
+
+.project-thumbnail figure {
+    margin: 0;
+}
+
+.project-thumbnail img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.project-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.project-content h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--primary);
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+
+.project-content p {
+    margin: 0 0 0.75rem 0;
+    line-height: 1.6;
+    color: var(--content);
+}
+
+.project-links {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.project-links a {
+    color: #ff6b6b !important;  
+    text-decoration: none !important;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.project-links a:not(:last-child)::after {
+    content: ", ";
+    color: var(--content);
+    margin-left: 0.25rem;
+}
+
+.project-links a:hover {
+    text-decoration: underline !important;
+}
+
+ 
+@media (max-width: 768px) {
+    .project-entry {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .project-thumbnail {
+        margin: 0 auto;
+    }
+    
+    .project-links {
+        justify-content: center;
+    }
+}
+
+ 
+.post-content a,
+.post-content a:link,
+.post-content a:visited,
+.post-content a:active {
+    box-shadow: none !important;
+    text-decoration: none !important;
+    color: #ff6b6b !important;  
+}
+
+.post-content a:hover {
+    box-shadow: none !important;
+    text-decoration: underline !important;
+    color: #ff6b6b !important;  
+}
+
+ 
+a, a:link, a:visited, a:active {
+    text-decoration: none !important;
+    color: #ff6b6b !important;  
+}
+
+a:hover {
+    text-decoration: underline !important;
+    color: #ff6b6b !important;  
+}
+
+ 
+a {
+    color: #ff6b6b !important;  
+    text-decoration: none !important;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ff6b6b !important;  
+    text-decoration: underline !important;
+}
+</style>
 </head>
 
 <body class="list" id="top">
@@ -74,7 +249,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="SG&#39;Log (Alt + H)">SG&#39;Log</a>
+            <a href="http://localhost:1313/" accesskey="h" title="San&#39;ML (Alt + H)">San&#39;ML</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -128,8 +303,9 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p> This project aims to improve comression ratio by using language guidance in ViT-based image tokenizers. The goal is to evaluate and explore multimodal interactions needed between language and images needed for tokenization.
-</p>
+    <p> Project Overview 3D foundational models like DUSt3R have revolutionized real-time scene reconstruction, offering significant advantages for applications such as scene rendering, AR/VR streaming, and robotic learning. DUSt3R (Dense and Unconstrained Stereo 3D Reconstruction) enables 3D reconstruction without requiring predefined camera poses or intrinsic parameters, streamlining the process and enhancing efficiency. ￼
+Research Objectives In our project, we aim to leverage these scene representations to enhance manipulation policies. Recent advancements, such as the FP3 model—a large-scale 3D foundation policy for robotic manipulation—demonstrate the effectiveness of 3D policies across various manipulation tasks.
+...</p>
   </div>
   <footer class="entry-footer"><span title='2025-03-05 00:00:00 +0000 UTC'>March 5, 2025</span></footer>
   <a class="entry-link" aria-label="post link to Real-time 3D Scene Reconstruction" href="http://localhost:1313/posts/mast3r/"></a>
@@ -137,7 +313,7 @@
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:1313/">SG&#39;Log</a></span> · 
+        <span>&copy; 2025 <a href="http://localhost:1313/">San&#39;ML</a></span> · 
 
     <span>
         Powered by

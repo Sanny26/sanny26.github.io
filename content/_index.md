@@ -3,44 +3,79 @@ title: "Welcome to Santhoshini's Archive"
 ---
 <!-- [//]: ![Profile Picture](images/profile.jpg) -->
 
-## About Me
-I’m Santhoshini, a graduate student majoring in Computer Vision at CMU. Here, I'm working at the [Momemtum Robotics Lab](https://github.com/momentum-robotics-lab) with [Prof. Jeff Ichnowski](https://ichnow.ski/) on improving 3D vision models for robotic perception. I'm also exploring areas like scaling generative modeling, with one of ideas being to improve image tokenization. 
+<!-- ## 🎯 About Me -->
 
+I'm Santhoshini, currently finishing up my Master's at [CMU SCS](https://www.ri.cmu.edu/education/academic-programs/master-of-science-computer-vision/) (Dec '25).
 
-Previously, I was a full-time graduate researcher at [CVIT, IIIT Hyderabad](https://cvit.iiit.ac.in/) under the guidance of [Prof. C. V. Jawahar](https://scholar.google.com/citations?user=U9dH-DoAAAAJ&hl=en), where I focused on handwriting recognition for Indian languages in document understanding. My work involved improving Seq2Seq models, enhancing image and text encoders for multimodal representation learning, and developing an embedding-based search engine. 
+Here, I'm working at the [Momentum Robotics Lab](https://github.com/momentum-robotics-lab) with [Prof. Jeff Ichnowski](https://ichnow.ski/), where my research work explores geometry-driven learning for robot manipulation and efficient image tokenization for scalable image generation. These projects naturally led me to my next curiosity: how can we build scalable AI models for real-world applications such as robotics or personalized content generation phones and wearable devices.
 
-### Featured Projects
-|  |  |
-|--|--|
-| [Fast 3D Scene Synthesis for Robot Manipulation](/posts/mast3r/) <br> {{< figure src="/images/robomast3r.png" alt="Robo 3D Teaser" width="350" height="300" style="margin-right: 30px;" >}}| [Language-guided image tokenization](/posts/imtok/) <br> {{< figure src="/images/tok.png" alt="Tokenizer Teaser" width="350" height="300" style="margin-left: 30px;" >}} |
-| [360 Indoor Scene Generation Pipeline](/pdfs/PanoFusion.pdf) <br> {{< figure src="/images/pano_input.svg" alt="360 Panorama Example" width="350" height="300" style="margin-right: 100px;padding-right: 20px;" >}} | [Zeroshot Text Retrieval with Embedding Search](https://cvit.iiit.ac.in/research/projects/cvit-projects/hw-search) <br> {{< figure src="/images/hwsearch.gif" alt="Search Teaser" width="350" height="220" >}}|
+Previously, I spent time as graduate researcher at [CVIT, IIIT Hyderabad](https://cvit.iiit.ac.in/) under the guidance of [Prof. C. V. Jawahar](https://scholar.google.com/citations?user=U9dH-DoAAAAJ&hl=en), where I focused on handwriting recognition for Indian languages in document understanding. My work involved improving Seq2Seq models, enhancing attention mechanisms, and developing robust evaluation metrics for Indic scripts. At [Micron Technology](https://www.micron.com/?srsltid=AfmBOopSLNjvbqUdcE2vEaDfJeStQWz_jh-uMj2uGvo8DvrqyOY-NS3y), I focused on few-shot instance segmentation, gaining hands-on experience with scaling ML systems from research to production in a fast-paced industry setting.
 
-<!-- -->    
+## 🚀 Featured Projects
 
-<!-- - **[Real-time 3D Scene Synthesis for Robotic Manipulation](/posts/mast3r/)**
+<div class="project-list">
 
-Optimizing 3D transformer models to output point clouds of dynamic scenes 
+  <div class="project-entry">
+    <div class="project-thumbnail">
+      {{< figure src="/images/hwsearch.gif" alt="Search Teaser" width="80" height="80" >}}
+    </div>
+    <div class="project-content">
+      <h3>Zeroshot Text Retrieval with Embedding Search</h3>
+      <p>Advanced document analysis and text retrieval systems for complex document understanding tasks.</p>
+      <div class="project-links">
+        <a href="https://cvit.iiit.ac.in/research/projects/cvit-projects/hw-search">Website</a>
+        <a href="https://cdn.iiit.ac.in/cdn/cvit.iiit.ac.in/images/ConferencePapers/2021/Handwritten-Text.pdf">Paper</a>
+        <!-- <a href="https://demo-link.com">Demo</a> -->
+      </div>
+    </div>
+  </div>
 
-{{< figure src="/images/robomast3r.png" alt="Robo 3D Teaser" width="400" height="300" >}}
+  <div class="project-entry">
+    <div class="project-thumbnail">
+      {{< figure src="/images/tok.png" alt="Tokenizer Teaser" width="80" height="80" >}}
+    </div>
+    <div class="project-content">
+      <h3>Language-guided tokenization</h3>
+      <p>Improving image tokenization by incorporating language guidance for better multimodal understanding.</p>
+      <div class="project-links">
+        <a href="/posts/imtok/">Post</a>
+        <!-- <a href="https://github.com/your-repo/tokenization">Code</a>
+        <a href="https://demo-link.com">Demo</a> -->
+      </div>
+    </div>
+  </div>
 
-- **[Language-guided image tokenization](/posts/imtok/)**
+  <div class="project-entry">
+    <div class="project-thumbnail">
+      {{< figure src="/images/robomast3r.png" alt="Robo 3D Teaser" width="80" height="80" >}}
+    </div>
+    <div class="project-content">
+      <h3>360 Scene Generation</h3>
+      <p>Real-time 3D scene reconstruction and synthesis for robotic perception and AR/VR applications.</p>
+      <div class="project-links">
+        <a href="/posts/mast3r/">Post</a>
+        <!-- <a href="https://github.com/your-repo/scene-gen">Code</a>
+        <a href="https://demo-link.com">Demo</a> -->
+      </div>
+    </div>
+  </div>
 
-Improving ViT based image tokenizers to scale generation of images.
-{{< figure src="/images/tok.png" alt="Tokenizer Teaser" width="400" height="300" >}}
+  <div class="project-entry">
+    <div class="project-thumbnail">
+      {{< figure src="/images/pano_input.svg" alt="360 Panorama Example" width="80" height="80" >}}
+    </div>
+    <div class="project-content">
+      <h3>360 Indoor Scene Generation Pipeline</h3>
+      <p>Advanced pipeline for generating 360-degree indoor scenes using panoramic input data.</p>
+      <div class="project-links">
+        <a href="/pdfs/PanoFusion.pdf">Presentation</a>
+        <!-- <a href="https://github.com/your-repo/pano-fusion">Code</a>
+        <a href="https://demo-link.com">Demo</a> -->
+      </div>
+    </div>
+  </div>
 
-
-- **[360 Indoor Scene Generation Pipeline](/pdfs/PanoFusion.pdf)** 
-
-Image synthesis of real-world 360 panorama images using 3D object generation and optimal furniture placement algorithms.
-
-{{< figure src="/images/pano_input.svg" alt="360 Panorama Example" width="400" height="300" style="display: inline-block;">}}
-
-
-- **[Zeroshot Text Retrieval with Embedding Search](https://cvit.iiit.ac.in/research/projects/cvit-projects/hw-search)** 
-
-A zero-shot search engine for handwritten collections.
-{{< figure src="/images/hwsearch.gif" alt="Search Teaser" width="400" height="300" style="display: inline-block;">}}
-
- -->
+  
+</div>
 
 
