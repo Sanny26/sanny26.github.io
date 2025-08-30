@@ -2,6 +2,7 @@
 title: "Test Post"
 date: 2025-08-29
 draft: true
+hiddenInHomeList: true
 ---
 
 This is a test post to verify Hugo is working correctly.

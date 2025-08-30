@@ -66,3 +66,7 @@ params:
   defaultAppearance: dark
   label:
     text: ""
+
+  footer:
+    text: "Inspired by [Lil'log](https://lilianweng.github.io/) & [sumit.ml](https://sumit.ml/)"
+    hideCopyright: True
