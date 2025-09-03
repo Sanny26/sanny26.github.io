@@ -1,0 +1,78 @@
+/* Carousel Styles for Horizontal Scrolling */
+div.scroll-container {
+  background-color: transparent;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 100%;
+  border-radius: 12px;
+}
+
+div.scroll-container .carousel-item {
+  display: inline-block;
+  position: relative;
+  margin-right: 20px;
+  text-decoration: none;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+div.scroll-container .carousel-item img {
+  display: block;
+  height: 200px;
+  width: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+div.scroll-container .carousel-item:hover img {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover text overlay */
+div.scroll-container .carousel-item .hover-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 15px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.3s ease;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+div.scroll-container .carousel-item:hover .hover-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom scrollbar */
+div.scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+div.scroll-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+div.scroll-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+div.scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

@@ -1,81 +1,50 @@
 ---
 title: "Welcome to Santhoshini's Archive"
 ---
-<!-- [//]: ![Profile Picture](images/profile.jpg) -->
 
-<!-- ## 🎯 About Me -->
+{{< two_column 
+    profile_img="/images/profile.jpg" 
+    github="https://github.com/sanny26" 
+    linkedin="https://linkedin.com/in/sgongidi" 
+    scholar="https://scholar.google.com/citations?user=OiI80VwAAAAJ&hl=en"
+    >}}
 
-I'm Santhoshini, currently finishing up my Master's at [CMU SCS](https://www.ri.cmu.edu/education/academic-programs/master-of-science-computer-vision/) (Dec '25).
+Hi there! 
 
-Here, I'm working at the [Momentum Robotics Lab](https://github.com/momentum-robotics-lab) with [Prof. Jeff Ichnowski](https://ichnow.ski/), where my research work explores geometry-driven learning for robot manipulation and efficient image tokenization for scalable image generation. These projects naturally led me to my next curiosity: how can we build scalable AI models for real-world applications such as robotics or personalized content generation phones and wearable devices.
+I'm Santhoshini, currently finishing up my Master's at [CMU SCS](https://www.ri.cmu.edu/) (Dec '25).  
 
-Previously, I spent time as graduate researcher at [CVIT, IIIT Hyderabad](https://cvit.iiit.ac.in/) under the guidance of [Prof. C. V. Jawahar](https://scholar.google.com/citations?user=U9dH-DoAAAAJ&hl=en), where I focused on handwriting recognition for Indian languages in document understanding. My work involved improving Seq2Seq models, enhancing attention mechanisms, and developing robust evaluation metrics for Indic scripts. At [Micron Technology](https://www.micron.com/?srsltid=AfmBOopSLNjvbqUdcE2vEaDfJeStQWz_jh-uMj2uGvo8DvrqyOY-NS3y), I focused on few-shot instance segmentation, gaining hands-on experience with scaling ML systems from research to production in a fast-paced industry setting.
+I'm working at the [Momentum Robotics Lab](https://github.com/momentum-robotics-lab) with [Prof. Jeff Ichnowski](https://ichnow.ski/) and [Bart](https://www.bart-ai.com/), focusing on 3D reconstruction and object completion priors for VLAs in robotics
 
-## 🚀 Featured Projects
+During Summer ’25, I interned at [Plus.ai](https://plus.ai/) as a Perception Research Engineer Intern, where I worked on multimodal sensor fusion for BEV segmentation. Previously, I spent time as graduate researcher at [CVIT, IIIT Hyderabad](https://cvit.iiit.ac.in/) under the guidance of [Prof. C. V. Jawahar](https://scholar.google.com/citations?user=U9dH-DoAAAAJ&hl=en), improving handwriting recognition and image search for Indic scripts. I also worked at [Micron Technology](https://www.micron.com/) as Applied Scientist developing few-shot instance segmentation models.
 
-<div class="project-list">
+My current interest is: 
+**Scaling post-training and inferencing of large models like VLMs or LMMs** for real-world applications such as robotics, personalized content generation on phones and wearable devices. 
+{{< /two_column >}}
 
-  <div class="project-entry">
-    <div class="project-thumbnail">
-      {{< figure src="/images/hwsearch.gif" alt="Search Teaser" width="80" height="80" >}}
-    </div>
-    <div class="project-content">
-      <h3>Zeroshot Text Retrieval with Embedding Search</h3>
-      <p>Advanced document analysis and text retrieval systems for complex document understanding tasks.</p>
-      <div class="project-links">
-        <a href="https://cvit.iiit.ac.in/research/projects/cvit-projects/hw-search">Website</a>
-        <a href="https://cdn.iiit.ac.in/cdn/cvit.iiit.ac.in/images/ConferencePapers/2021/Handwritten-Text.pdf">Paper</a>
-        <!-- <a href="https://demo-link.com">Demo</a> -->
-      </div>
-    </div>
-  </div>
-
-  <div class="project-entry">
-    <div class="project-thumbnail">
-      {{< figure src="/images/tok.png" alt="Tokenizer Teaser" width="80" height="80" >}}
-    </div>
-    <div class="project-content">
-      <h3>Language-guided tokenization</h3>
-      <p>Improving image tokenization by incorporating language guidance for better multimodal understanding.</p>
-      <div class="project-links">
-        <a href="/posts/imtok/">Post</a>
-        <!-- <a href="https://github.com/your-repo/tokenization">Code</a>
-        <a href="https://demo-link.com">Demo</a> -->
-      </div>
-    </div>
-  </div>
-
-  <div class="project-entry">
-    <div class="project-thumbnail">
-      {{< figure src="/images/robomast3r.png" alt="Robo 3D Teaser" width="80" height="80" >}}
-    </div>
-    <div class="project-content">
-      <h3>360 Scene Generation</h3>
-      <p>Real-time 3D scene reconstruction and synthesis for robotic perception and AR/VR applications.</p>
-      <div class="project-links">
-        <a href="/posts/mast3r/">Post</a>
-        <!-- <a href="https://github.com/your-repo/scene-gen">Code</a>
-        <a href="https://demo-link.com">Demo</a> -->
-      </div>
-    </div>
-  </div>
-
-  <div class="project-entry">
-    <div class="project-thumbnail">
-      {{< figure src="/images/pano_input.svg" alt="360 Panorama Example" width="80" height="80" >}}
-    </div>
-    <div class="project-content">
-      <h3>360 Indoor Scene Generation Pipeline</h3>
-      <p>Advanced pipeline for generating 360-degree indoor scenes using panoramic input data.</p>
-      <div class="project-links">
-        <a href="/pdfs/PanoFusion.pdf">Presentation</a>
-        <!-- <a href="https://github.com/your-repo/pano-fusion">Code</a>
-        <a href="https://demo-link.com">Demo</a> -->
-      </div>
-    </div>
-  </div>
-
+<div class="scroll-container">
+  <a href="/posts/imtok/" class="carousel-item" title="Language-guided Image Tokenization - CMU Research 2025">
+    <img src="/images/tok.png" alt="Tokenizer Teaser" width="600" height="400">
+    <div class="hover-text">Language-guided Image Tokenization</div>
+  </a>
   
+  <a href="/posts/mast3r/" class="carousel-item" title="360° Scene Generation for Robotics - CMU Research 2025">
+    <img src="/images/robomast3r.png" alt="Robo 3D Teaser" width="600" height="400">
+    <div class="hover-text">360° Scene Generation for Robotics</div>
+  </a>
+
+  <a href="https://cvit.iiit.ac.in/research/projects/cvit-projects/hw-search" class="carousel-item" title="Zeroshot Text Retrieval with Embedding Search - ICDAR 2021">
+    <img src="/images/hwsearch.gif" alt="Search Teaser" width="600" height="400">
+    <div class="hover-text">Zeroshot Text Retrieval with Embedding Search</div>
+  </a>
+
 </div>
+
+#### posts.
+
+#### recent updates.
+
+
+
+
 
 

@@ -20,10 +20,6 @@ params:
   socialIcons:
     - name: "LinkedIn"
       url: "https://linkedin.com/in/sgongidi"
-    - name: "googlescholar"
-      url: "https://scholar.google.com/citations?user=OiI80VwAAAAJ&hl=en"
-    - name: "Github"
-      url: "https://github.com/sanny26"
     - name: "Email"
       url: "mailto:san.gongidi@gmail.com"
 
