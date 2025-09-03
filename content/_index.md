@@ -17,8 +17,8 @@ I'm working at the [Momentum Robotics Lab](https://github.com/momentum-robotics-
 
 During Summer ’25, I interned at [Plus.ai](https://plus.ai/) as a Perception Research Engineer Intern, where I worked on multimodal sensor fusion for BEV segmentation. Previously, I spent time as graduate researcher at [CVIT, IIIT Hyderabad](https://cvit.iiit.ac.in/) under the guidance of [Prof. C. V. Jawahar](https://scholar.google.com/citations?user=U9dH-DoAAAAJ&hl=en), improving handwriting recognition and image search for Indic scripts. I also worked at [Micron Technology](https://www.micron.com/) as Applied Scientist developing few-shot instance segmentation models.
 
-My current interest is: 
-**Scaling post-training and inferencing of large models like VLMs or LMMs** for real-world applications such as robotics, personalized content generation on phones and wearable devices. 
+My current focus is on **improving post-training and inference efficiency of large models**, like VLMs and LMMs.
+
 {{< /two_column >}}
 
 <div class="scroll-container">
