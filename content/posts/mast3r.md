@@ -2,6 +2,7 @@
 title: "Real-time 3D Scene Reconstruction"
 date: 2025-03-05
 hiddenInHomeList: true
+ShowToc: true
 tags:
   - WIP
 ---

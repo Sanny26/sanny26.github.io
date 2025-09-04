@@ -35,8 +35,8 @@ params:
   ShowCodeCopyButtons: true
   ShowRssButtonInSectionTermList: true
   
-  # Better navigation
-  ShowToc: true
+  # Better navigation: shows table of contents
+  ShowToc: false
   TocOpen: false
   
   # Enhanced appearance

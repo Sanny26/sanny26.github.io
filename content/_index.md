@@ -17,7 +17,7 @@ I'm working at the [Momentum Robotics Lab](https://github.com/momentum-robotics-
 
 During Summer ’25, I interned at [Plus.ai](https://plus.ai/) as a Perception Research Engineer Intern, where I worked on multimodal sensor fusion for BEV segmentation. Previously, I spent time as graduate researcher at [CVIT, IIIT Hyderabad](https://cvit.iiit.ac.in/) under the guidance of [Prof. C. V. Jawahar](https://scholar.google.com/citations?user=U9dH-DoAAAAJ&hl=en), improving handwriting recognition and image search for Indic scripts. I also worked at [Micron Technology](https://www.micron.com/) as Applied Scientist developing few-shot instance segmentation models.
 
-My current focus is on **improving post-training and inference efficiency of large models**, like VLMs and LMMs.
+*My current focus is on **improving post-training and inference efficiency of large models**, including Vision-Language Models (VLMs) and Large Multimodal Models (LMMs). I'm actively seeking opportunities to join in Jan 2026.*
 
 {{< /two_column >}}
 
@@ -29,7 +29,7 @@ My current focus is on **improving post-training and inference efficiency of lar
   
   <a href="/posts/mast3r/" class="carousel-item" title="360° Scene Generation for Robotics - CMU Research 2025">
     <img src="/images/robomast3r.png" alt="Robo 3D Teaser" width="600" height="400">
-    <div class="hover-text">360° Scene Generation for Robotics</div>
+    <div class="hover-text">Geometry Driven Learning for Robotics</div>
   </a>
 
   <a href="https://cvit.iiit.ac.in/research/projects/cvit-projects/hw-search" class="carousel-item" title="Zeroshot Text Retrieval with Embedding Search - ICDAR 2021">
