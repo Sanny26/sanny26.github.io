@@ -1,24 +1,28 @@
 ---
-title: "Real-time 3D Scene Reconstruction"
+title: "Geometry Meets VLA"
 date: 2025-03-05
 hiddenInHomeList: true
 ShowToc: true
 tags:
-  - WIP
+  - Worklog
 ---
 
-{{< figure src="/images/robomast3r.png" alt="Robo 3D Teaser" width="400" height="300" >}}
+<!-- {{< figure src="/images/robomast3r.png" alt="Robo 3D Teaser" width="1000" >}} -->
+
+<video src="/images/posts/sample_video.mp4" autoplay loop controls width="1000"></video>
 
 ## Project Overview
 
-3D foundational models like DUSt3R have revolutionized real-time scene reconstruction, offering significant advantages for applications such as scene rendering, AR/VR streaming, and robotic learning. DUSt3R (Dense and Unconstrained Stereo 3D Reconstruction) enables 3D reconstruction without requiring predefined camera poses or intrinsic parameters, streamlining the process and enhancing efficiency.  ￼
+Over the past year, a lot of progress has been made in connecting geometry-specialist models and generalist VLAs. Models like Dust3R and VGGT have shown that multi-view geometry can be recovered reliably in real time. On the other side, frameworks such as OpenVLA and π₀-FAST have demonstrated that vision-language-action pipelines can scale across tasks and robots with minimal finetuning.
 
-## Research Objectives
+The natural next step is to ask: can these two worlds reinforce each other? Geometry provides structure and robustness, while VLAs offer generalization and flexible grounding.
 
-{{< icon "linkedin" "1.2em" "mr-2" >}} In our project, we aim to leverage these scene representations to enhance manipulation policies. Recent advancements, such as the FP3 model—a large-scale 3D foundation policy for robotic manipulation—demonstrate the effectiveness of 3D policies across various manipulation tasks. 
+⸻
 
-Our objective is to harness pretrained foundational models within a rapid and cost-effective optimization framework, further advancing the application of 3D scene representations in robotic learning. This approach aligns with the growing trend of integrating 3D geometric information into robotic systems to enhance performance and adaptability.
+Current State of the Project
 
-## 🔧 Technical Challenges
+The project explores how geometry-aware representations can be integrated into VLA training pipelines. A key challenge is deciding how much 3D structure to inject:
+-	Intermediate latent features from geometry models may enrich policies without committing to an explicit depth prior.
+-	Reconstructed depth or pose priors could provide stronger grounding but risk narrowing the model’s ability to generalize across tasks.
 
-Additionally, optimizing the 3D perception pipeline to reduce latency and improve accuracy is crucial for effective scene representation. Addressing these challenges is essential for the seamless integration of 3D perception in real-world robotic applications.
+The open question we are tackling now is where to strike this balance — injecting enough 3D structure to help manipulation and reasoning, without breaking the generalization power that makes VLAs so attractive in the first place.
