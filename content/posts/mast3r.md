@@ -9,7 +9,7 @@ tags:
 
 <!-- {{< figure src="/images/robomast3r.png" alt="Robo 3D Teaser" width="1000" >}} -->
 
-<video src="/images/posts/sample_video.mp4" autoplay loop controls width="1000"></video>
+<video src="/images/posts/robovla/sample_video.mp4" autoplay loop controls></video>
 
 ## Project Overview
 
