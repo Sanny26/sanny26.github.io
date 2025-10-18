@@ -1,14 +1,10 @@
-----
-title: "Patch-wise Mixed Precision Attention for Vision Models (Worklog)"
+---
+title: "Patch-wise Mixed Precision Attention for Vision Models"
 date: 2025-03-05
 hiddenInHomeList: true
 ShowToc: true
 tags:
   - Worklog
-  - Vision Transformers
-  - Mixed Precision
-  - 3D Vision
-  - Systems
 ---
 
 ## Why
