@@ -1,3 +1,4 @@
+----
 title: "Patch-wise Mixed Precision Attention for Vision Models (Worklog)"
 date: 2025-03-05
 hiddenInHomeList: true
