@@ -11,13 +11,12 @@ title: "Welcome to Santhoshini's Archive"
 
 Hi there! 
 
-I'm Santhoshini, currently finishing up my Master's at [CMU SCS](https://www.ri.cmu.edu/) (Dec '25).  
+I'm Santhoshini, currently finishing up my Master's at [CMU SCS](https://www.ri.cmu.edu/) (Dec '25). I enjoy working at the intersection of engineering and research to make intelligent systems practical and scalable.
+I'm collaborating with the [Momentum Robotics Lab](https://github.com/momentum-robotics-lab) with [Prof. Jeff Ichnowski](https://ichnow.ski/) and [Bart](https://www.bart-ai.com/), adapting 3D foundational models (VGGT, Mast3R) for single-task diffusion policies and generalist vision–language–action policies. I also focus on making large models compute-efficient, leading projects in 1D image tokenization to accelerate latent diffusion and mixed-precision patch attention for vision transformers(wip).
 
-I'm working at the [Momentum Robotics Lab](https://github.com/momentum-robotics-lab) with [Prof. Jeff Ichnowski](https://ichnow.ski/) and [Bart](https://www.bart-ai.com/), focusing on 3D reconstruction and object completion priors for VLAs in robotics
+During Summer ’25, I interned at [Plus.ai](https://plus.ai/) as a Perception Research Engineer Intern, where I worked on multimodal sensor fusion for BEV segmentation. Previously, I spent time as graduate researcher at [CVIT, IIIT Hyderabad](https://cvit.iiit.ac.in/) under the guidance of [Prof. C. V. Jawahar](https://scholar.google.com/citations?user=U9dH-DoAAAAJ&hl=en), working on Seq2Seq modeling problems like handwriting recognition and zero-shot text to image retrieval. I also worked at [Micron Technology](https://www.micron.com/) as Applied ML Engieer developing few-shot instance segmentation models over cloud platforms. 
 
-During Summer ’25, I interned at [Plus.ai](https://plus.ai/) as a Perception Research Engineer Intern, where I worked on multimodal sensor fusion for BEV segmentation. Previously, I spent time as graduate researcher at [CVIT, IIIT Hyderabad](https://cvit.iiit.ac.in/) under the guidance of [Prof. C. V. Jawahar](https://scholar.google.com/citations?user=U9dH-DoAAAAJ&hl=en), improving handwriting recognition and image search for Indic scripts. I also worked at [Micron Technology](https://www.micron.com/) as Applied Scientist developing few-shot instance segmentation models.
-
-*My current focus is on **improving post-training and inference efficiency of large models**, including Vision-Language Models (VLMs) and Large Multimodal Models (LMMs). I'm actively seeking opportunities to join in Jan 2026.*
+*I’m excited to join teams that rely on generalists to bridge research and scalable implementation. Please feel free to reach out!*
 
 {{< /two_column >}}
 
@@ -30,6 +29,11 @@ During Summer ’25, I interned at [Plus.ai](https://plus.ai/) as a Perception R
   <a href="/posts/mast3r/" class="carousel-item" title="360° Scene Generation for Robotics - CMU Research 2025">
     <img src="/images/robomast3r.png" alt="Robo 3D Teaser" width="600" height="400">
     <div class="hover-text">Geometry Driven Learning for Robotics</div>
+  </a>
+
+  <a href="/posts/mpavit/" class="carousel-item" title="MPAVIT">
+    <img src="/images/posts/mixed-precision-patch-attention-mpavit/thumbnail.svg" alt="Robo 3D Teaser" width="600" height="400">
+    <div class="hover-text">All image patches are not the same!</div>
   </a>
 
   <a href="https://cvit.iiit.ac.in/research/projects/cvit-projects/hw-search" class="carousel-item" title="Zeroshot Text Retrieval with Embedding Search - ICDAR 2021">
