@@ -44,9 +44,9 @@ During Summer ’25, I interned at [Plus.ai](https://plus.ai/) as a Perception R
 
 </div>
 
-#### posts.
+<!-- #### posts. -->
 
-#### recent updates.
+<!-- #### recent updates. -->
 
 
 
