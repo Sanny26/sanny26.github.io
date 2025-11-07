@@ -7,16 +7,13 @@ tags:
   - Worklog
 ---
 
+> Note: This is a active worklog of an ongoing project.
+
 ## Why
 Vision and 3D foundation models (e.g., Dust3R, VGGT) rely on transformer attention over hundreds of image patches. At inference time, every patch is processed with the same precision (FP16/FP32), even when many patches are visually uninformative (background). This wastes compute and memory, limiting on-device deployment.
 
 ## Hypothesis
 Not all patches need equal numerical precision. By routing low-saliency patches through a lower-precision path (e.g., FP8/INT8) while keeping high-saliency patches at higher precision, we can reduce latency and memory without degrading geometric fidelity where it matters.
-
-## What I’m Building
-- Patch saliency routing that scores tokens/patches using simple signals (e.g., attention entropy, Q–K cosine similarity, feature norm).
-- A fused attention kernel ([Triton](https://triton-lang.org)) with two precision paths (FP8/INT8 and FP16) and FP32 accumulation for stability.
-- Memory layout reorganization so tiles within a precision tier are coalesced, avoiding warp divergence and preserving throughput.
 
 ## Why This Should Work
 - Empirical precedent: LLM quantization ([SmoothQuant](https://arxiv.org/abs/2211.10438), [AWQ](https://arxiv.org/abs/2306.00978)) and [FlashAttention-3](https://github.com/Dao-AILab/flash-attention) show mixed-precision matmuls can be fast and accurate when the kernel is designed for it.
@@ -37,10 +34,10 @@ Not all patches need equal numerical precision. By routing low-saliency patches 
 4) Integration + eval
 - Drop-in to Dust3R/VGGT-style blocks; run depth and multi-view consistency subsets. Track latency, peak memory, and geometric metrics.
 
-## Evaluation Checklist
+<!-- ## Evaluation Checklist
 - Performance: end-to-end latency, peak VRAM, kernel-level metrics (achieved occupancy, bytes/FLOP).
 - Accuracy: depth error, reprojection consistency, pose quality; visual regressions on representative scenes.
-- Ablations: routing signal choice; precision ratio; layers enabled; tile sizes.
+- Ablations: routing signal choice; precision ratio; layers enabled; tile sizes. -->
 
 ## References & Resources
 - FlashAttention-3: fast attention kernels — https://github.com/Dao-AILab/flash-attention
@@ -51,12 +48,7 @@ Not all patches need equal numerical precision. By routing low-saliency patches 
 - DINO: Self-Distillation with No Labels — https://arxiv.org/abs/2104.14294
 - Triton language for custom kernels — https://triton-lang.org
 
-## Risks and Mitigations
+## Risks
 - Attention sinks: “uninformative” tokens can carry global context. Mitigation: per-layer saliency refresh or restrict routing to mid/deep layers.
 - Routing overhead: scoring + shuffling can erase gains. Mitigation: lightweight metrics, batched prefix-sums, minimize reorders.
 - Hardware limits: FP8 depends on GPU support. Mitigation: fall back to INT8 or packed FP16 emulation; keep interfaces modular.
-
-## Immediate Next Steps
-- Implement FP16 baseline kernel and profiling harness.
-- Add FP8 path with shared FP32 accumulation; validate numerics on toy inputs.
-- Build random router and sweep precision ratios to bound speedup potential.
