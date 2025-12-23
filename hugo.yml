@@ -46,9 +46,8 @@ params:
   mainSections:
     - posts
 
-  
-  defaultTheme: auto
-  # disableThemeToggle: false
+  defaultTheme: light
+  disableThemeToggle: false
 
   socialIcons:
     - name: "LinkedIn"
@@ -89,12 +88,6 @@ params:
     threshold: 0.4
     minMatchCharLength: 0
     keys: ["title", "permalink", "summary", "content"]
-  
-  customCSS: 
-    - "css/custom.css"
-  defaultAppearance: light
-  label:
-    text: ""
 
   footer:
     text: "Inspired by [Lil'log](https://lilianweng.github.io/) & [sumit.ml](https://sumit.ml/)"
