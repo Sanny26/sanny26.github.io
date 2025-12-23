@@ -1,176 +1,226 @@
 {{- /* Head custom content area start */ -}}
-{{- /*     Insert any custom code (web-analytics, resources, etc.) - it will appear in the <head></head> section of every page. */ -}}
-{{- /*     Can be overwritten by partial with the same name in the global layouts. */ -}}
+{{- /* Insert any custom code (web-analytics, resources, etc.) - it will appear in the
 
-<!-- IBM Plex Mono Font -->
+<head></head> section of every page. */ -}}
+{{- /* Can be overwritten by partial with the same name in the global layouts. */ -}}
+
+<!-- Google Fonts: Bree Serif & Bungee Shade -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Bungee+Shade&display=swap" rel="stylesheet">
 
 <!-- Custom Favicon - Octopus Emoji -->
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐙</text></svg>">
+<a href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em'
+        font-size='90'>🐙</text></svg>">
 
-<!-- IBM Plex Mono Font CSS -->
-<style>
-body {
-    font-family: "IBM Plex Mono", "IBM Plex Mono Fallback", monospace !important;
-    font-style: normal !important;
-    font-size: 0.9em !important; /* Reduce overall font size by 20% */
-}
+    <!-- Math Support (KaTeX) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+        integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+        integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+        crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false },
+                    { left: '\\(', right: '\\)', display: false },
+                    { left: '\\[', right: '\\]', display: true }
+                ],
+                throwOnError: false
+            });
+        });
+    </script>
 
-h1, h2, h3, h4, h5, h6,
-p, li, td, th, span, div,
-.post-content, .post-title, .post-description,
-.post-meta, .breadcrumbs, .pagination,
-.social-icons a, .page-header h1 {
-    font-family: "IBM Plex Mono", "IBM Plex Mono Fallback", monospace !important;
-    font-style: normal !important;
-}
+    <!-- IBM Plex Mono Font CSS -->
+    <style>
+        body {
+            font-family: 'Bree Serif', serif !important;
+            font-style: normal !important;
+            font-size: 1em !important;
+            /* Reduce overall font size by 20% */
+        }
 
-/* Custom site title styling - simple approach */
-.logo a {
-    font-family: "IBM Plex Mono", "IBM Plex Mono Fallback", monospace !important;
-    font-size: 0; /* Hide the original text */
-}
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        li,
+        td,
+        th,
+        span,
+        div,
+        .post-content,
+        .post-title,
+        .post-description,
+        .post-meta,
+        .breadcrumbs,
+        .pagination,
+        .social-icons a,
+        .page-header h1 {
+            font-family: 'Bree Serif', serif !important;
+            font-style: normal !important;
+        }
+
+        /* Custom site title styling */
+        .logo a {
+            font-family: 'Bungee Shade', cursive !important;
+            font-size: 1.8em !important;
+        }
 
 
-.logo a::before {
-    /* content: "SGo"; */
-    /* content: "🐙"; */
-    content: "s'Verse";
-    font-size: 1.2rem; 
-}
+
+        /* Project list styling - simplified */
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .project-entry {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            flex-direction: row-reverse;
+            /* Reverse order to put thumbnails on right */
+        }
+
+        .project-thumbnail {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+        }
+
+        .project-thumbnail figure {
+            margin: 0;
+        }
+
+        .project-thumbnail img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .project-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .project-content h3 {
+            margin: 0 0 0.5rem 0;
+            color: var(--primary);
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }
+
+        .project-content p {
+            margin: 0 0 0.75rem 0;
+            line-height: 1.6;
+            color: var(--content);
+        }
+
+        .project-links {
+            display: flex;
+            flex-direction: row;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .project-links a {
+            color: #6d9eeb !important;
+            /* Light blue color */
+            text-decoration: none !important;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .project-links a:not(:last-child)::after {
+            content: ", ";
+            color: var(--content);
+            margin-left: 0.25rem;
+        }
+
+        .project-links a:hover {
+            text-decoration: underline !important;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .project-entry {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .project-thumbnail {
+                margin: 0 auto;
+            }
+
+            .project-links {
+                justify-content: center;
+            }
+        }
+
+        /* Override theme's box-shadow underline effect */
+        .post-content a,
+        .post-content a:link,
+        .post-content a:visited,
+        .post-content a:active {
+            box-shadow: none !important;
+            text-decoration: none !important;
+            /* color: #10c5d5 !important; */
+            color: #a82d4a !important;
+            /* Light blue color */
+        }
+
+        .post-content a:hover {
+            box-shadow: none !important;
+            text-decoration: underline !important;
+            color: #b357b3 !important;
+            /* Keep light blue on hover */
+        }
+
+        /* Global link styling - override theme defaults */
+        a,
+        a:link,
+        a:visited,
+        a:active {
+            text-decoration: none !important;
+            color: #a82d4a !important;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #b357b3 !important;
+            /* Keep light blue on hover */
+            text-decoration: underline !important;
+        }
 
 
+        /* Text Highlight Class */
+        .custom-highlight {
+            background-color: transparent;
+            color: #b5387d;
+        }
 
-/* Project list styling - simplified */
-.project-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-}
+        /* Helper classes for table data coloring */
+        .text-blue {
+            color: #2196f3;
+            font-weight: bold;
+        }
 
-.project-entry {
-    display: flex;
-    gap: 1.5rem;
-    align-items: flex-start;
-    flex-direction: row-reverse; /* Reverse order to put thumbnails on right */
-}
+        .text-orange {
+            color: #ff9800;
+            font-weight: bold;
+        }
+    </style>
 
-.project-thumbnail {
-    flex-shrink: 0;
-    width: 80px;
-    height: 80px;
-}
-
-.project-thumbnail figure {
-    margin: 0;
-}
-
-.project-thumbnail img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 4px;
-}
-
-.project-content {
-    flex: 1;
-    min-width: 0;
-}
-
-.project-content h3 {
-    margin: 0 0 0.5rem 0;
-    color: var(--primary);
-    font-size: 1.2rem;
-    line-height: 1.4;
-}
-
-.project-content p {
-    margin: 0 0 0.75rem 0;
-    line-height: 1.6;
-    color: var(--content);
-}
-
-.project-links {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
-    align-items: center;
-}
-
-.project-links a {
-    color: #6d9eeb !important; /* Light blue color */
-    text-decoration: none !important;
-    font-size: 0.9rem;
-    line-height: 1.4;
-}
-
-.project-links a:not(:last-child)::after {
-    content: ", ";
-    color: var(--content);
-    margin-left: 0.25rem;
-}
-
-.project-links a:hover {
-    text-decoration: underline !important;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    .project-entry {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-    }
-    
-    .project-thumbnail {
-        margin: 0 auto;
-    }
-    
-    .project-links {
-        justify-content: center;
-    }
-}
-
-/* Override theme's box-shadow underline effect */
-.post-content a,
-.post-content a:link,
-.post-content a:visited,
-.post-content a:active {
-    box-shadow: none !important;
-    text-decoration: none !important;
-    color: #6d9eeb !important; /* Light blue color */
-}
-
-.post-content a:hover {
-    box-shadow: none !important;
-    text-decoration: underline !important;
-    color: #6d9eeb !important; /* Keep light blue on hover */
-}
-
-/* Global link styling - override theme defaults */
-a, a:link, a:visited, a:active {
-    text-decoration: none !important;
-    color: #6d9eeb !important; /* Light blue color for all links */
-}
-
-a:hover {
-    text-decoration: underline !important;
-    color: #6d9eeb !important; /* Keep light blue on hover */
-}
-
-/* Simple link styling */
-a {
-    color: #6d9eeb !important; /* Light blue color */
-    text-decoration: none !important;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: #6d9eeb !important; /* Keep light blue on hover */
-    text-decoration: underline !important;
-}
-</style>
-
-{{- /* Head custom content area end */ -}}
+    {{- /* Head custom content area end */ -}}

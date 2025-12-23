@@ -1,7 +1,7 @@
 ---
 title: "Geometry Driven Imitation Learning"
 date: 2025-03-05
-hiddenInHomeList: true
+hiddenInHomeList: false
 ShowToc: true
 tags:
   - Worklog

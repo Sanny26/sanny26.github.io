@@ -1,3 +1,20 @@
 :root {
     --main-width: 900px;
+
+    /* Light Theme - #ddd background */
+    --theme: #ddd;
+    --entry: #eee;
+    /* Slightly lighter than background */
+    --primary: #000;
+    --content: #777;
+    --border: #bbb;
+}
+
+.dark {
+    /* Dark Theme - #222 background (complementary) */
+    --theme: #222;
+    --entry: #333;
+    --primary: #aaa;
+    --content: #aaa;
+    --border: #444;
 }

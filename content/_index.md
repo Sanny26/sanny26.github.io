@@ -21,7 +21,22 @@ During Summer ’25, I interned at [Plus.ai](https://plus.ai/) as a Perception R
 
 {{< /two_column >}}
 
+<!-- Project Higlight  -->
+<!-- ### Project of the Month -->
+<!-- <a href="/posts/mpavit/" class="carousel-item" title="MPAVIT">
+    <img src="/images/posts/mpavit/thumbnail.svg" alt="Robo 3D Teaser" width="600" height="400">
+</a> -->
+
+
+<!-- List all projects  -->
+
 <div class="scroll-container">
+
+  <a href="/posts/mpavit/" class="carousel-item" title="MPAVIT">
+    <img src="/images/posts/mpavit/thumbnail_mpavit.png" alt="Robo 3D Teaser" width="600" height="400">
+    <div class="hover-text">Speeding up Multi-view Transformers on H100s</div>
+  </a>
+
   <a href="/posts/imtok/" class="carousel-item" title="Language-guided Image Tokenization - CMU Research 2025">
     <img src="/images/tok.png" alt="Tokenizer Teaser" width="600" height="400">
     <div class="hover-text">Language-guided Image Tokenization</div>
@@ -32,19 +47,12 @@ During Summer ’25, I interned at [Plus.ai](https://plus.ai/) as a Perception R
     <div class="hover-text">Geometry Driven Learning for Robotics</div>
   </a>
 
-  <a href="/posts/mpavit/" class="carousel-item" title="MPAVIT">
-    <img src="/images/posts/mixed-precision-patch-attention-mpavit/thumbnail.svg" alt="Robo 3D Teaser" width="600" height="400">
-    <div class="hover-text">All image patches are not the same!</div>
-  </a>
-
   <a href="https://cvit.iiit.ac.in/research/projects/cvit-projects/hw-search" class="carousel-item" title="Zeroshot Text Retrieval with Embedding Search - ICDAR 2021">
     <img src="/images/hwsearch.gif" alt="Search Teaser" width="600" height="400">
     <div class="hover-text">Zeroshot Text Retrieval with Embedding Search</div>
   </a>
 
 </div>
-
-<!-- #### posts. -->
 
 <!-- #### recent updates. -->
 

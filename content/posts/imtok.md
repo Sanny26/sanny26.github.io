@@ -1,7 +1,7 @@
 ---
 title: "Language-guided Image Tokenization"
 date: 2025-03-05
-hiddenInHomeList: true
+hiddenInHomeList: false
 tags:
   - GenAI
   - Multimodal Alignment

@@ -1,21 +1,54 @@
 baseURL: https://sanny26.github.io/
 languageCode: en-us
-title: __san__
+title: s'Verse
 theme: PaperMod
-description: "Explore Santhoshini's archive of projects, research, and professional activities in AI and computer vision."
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+  disableXML: true
+  minifyOutput: true
 
 markup:
   goldmark:
     renderer:
       unsafe: true
 
+mainSections:
+  - posts
+
 params:
-  homeInfoMode: true
+  env: production
+  title: s'Verse
+  description: "Explore Santhoshini's archive of projects, research, and professional activities in AI and computer vision."
+
+  # homeInfoMode: true
   homeInfoParams:
-    Content: Thanks for visiting my studio! Reach out on my socials for any collaborations or brainstorming!
+    Content: Thanks for visiting my page! Reach out on my socials for any collaborations or brainstorming!
   
-  defaultTheme: dark
-  defaultThemeToggle: true
+  profileMode:
+    enabled: false # needs to be explicitly set
+    title: ExampleSite
+    subtitle: "This is subtitle"
+    imageUrl: "<img location>"
+    imageWidth: 120
+    imageHeight: 120
+    imageTitle: my image
+    buttons:
+      - name: Posts
+        url: posts
+      - name: Tags
+        url: tags
+  
+  mainSections:
+    - posts
+
+  
+  defaultTheme: auto
+  # disableThemeToggle: false
 
   socialIcons:
     - name: "LinkedIn"
@@ -44,8 +77,8 @@ params:
   ShowLastMod: true
   
   # Homepage enhancements
-  ShowRecentInHomepage: true
-  ShowSummary: true
+  # ShowRecentInHomepage: true
+  # ShowSummary: true
   
   # Search functionality
   fuseOpts:
@@ -59,7 +92,7 @@ params:
   
   customCSS: 
     - "css/custom.css"
-  defaultAppearance: dark
+  defaultAppearance: light
   label:
     text: ""
 
