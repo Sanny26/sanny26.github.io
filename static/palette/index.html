@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Soft Summer Palette</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background: #111;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+      height: 100dvh;
+      width: 100vw;
+      overflow: hidden;
+      touch-action: manipulation;
+    }
+
+    /* ── START SCREEN ── */
+    #start-screen {
+      position: fixed;
+      inset: 0;
+      background: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      z-index: 100;
+      padding: 32px;
+      text-align: center;
+    }
+
+    #start-screen h1 {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    #start-screen p {
+      font-size: 14px;
+      opacity: 0.6;
+      line-height: 1.6;
+      max-width: 300px;
+    }
+
+    .palette-preview {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 240px;
+    }
+
+    .preview-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+    }
+
+    #start-btn {
+      background: #fff;
+      color: #111;
+      border: none;
+      border-radius: 28px;
+      padding: 15px 40px;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      -webkit-appearance: none;
+      width: 100%;
+      max-width: 280px;
+    }
+
+    #error-msg {
+      color: #f87171;
+      font-size: 13px;
+      display: none;
+      max-width: 280px;
+      line-height: 1.5;
+    }
+
+    #error-msg.show {
+      display: block;
+    }
+
+    /* ── CAMERA SCREEN ── */
+    #camera-screen {
+      display: none;
+      position: fixed;
+      inset: 0;
+    }
+
+    #camera-screen.active {
+      display: block;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      position: absolute;
+      inset: 0;
+    }
+
+    #tap-zone {
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      cursor: pointer;
+    }
+
+    /* Crosshair */
+    #crosshair {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2.5px solid rgba(255, 255, 255, 0.95);
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
+      pointer-events: none;
+      z-index: 10;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+
+    #crosshair.c-best {
+      border-color: #4ade80;
+      box-shadow: 0 0 0 1px rgba(74, 222, 128, 0.3), 0 0 18px rgba(74, 222, 128, 0.4);
+    }
+
+    #crosshair.c-accent {
+      border-color: #fb923c;
+      box-shadow: 0 0 0 1px rgba(251, 146, 60, 0.3), 0 0 18px rgba(251, 146, 60, 0.3);
+    }
+
+    #crosshair.c-evening {
+      border-color: #a78bfa;
+      box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.3), 0 0 18px rgba(167, 139, 250, 0.3);
+    }
+
+    #crosshair.c-crossover {
+      border-color: #2dd4bf;
+      box-shadow: 0 0 0 1px rgba(45, 212, 191, 0.3), 0 0 18px rgba(45, 212, 191, 0.3);
+    }
+
+    #crosshair.c-prints {
+      border-color: #f9a8d4;
+      box-shadow: 0 0 0 1px rgba(249, 168, 212, 0.3), 0 0 18px rgba(249, 168, 212, 0.3);
+    }
+
+    #crosshair.c-neutral {
+      border-color: #60a5fa;
+      box-shadow: 0 0 0 1px rgba(96, 165, 250, 0.3), 0 0 18px rgba(96, 165, 250, 0.3);
+    }
+
+    #crosshair.c-avoid {
+      border-color: #f87171;
+      box-shadow: 0 0 0 1px rgba(248, 113, 113, 0.3), 0 0 18px rgba(248, 113, 113, 0.3);
+    }
+
+    #crosshair::before,
+    #crosshair::after {
+      content: '';
+      position: absolute;
+      background: rgba(255, 255, 255, 0.85);
+    }
+
+    #crosshair::before {
+      width: 1.5px;
+      height: 18px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    #crosshair::after {
+      width: 18px;
+      height: 1.5px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Top bar */
+    #top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: max(env(safe-area-inset-top), 16px) 16px 20px;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65), transparent);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 20;
+      pointer-events: none;
+    }
+
+    #color-display {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #live-swatch {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.7);
+      background: #888;
+      transition: background 0.08s;
+    }
+
+    #hex-code {
+      font-size: 12px;
+      font-family: 'SF Mono', Courier, monospace;
+      opacity: 0.85;
+      letter-spacing: 0.5px;
+    }
+
+    #season-tag {
+      font-size: 13px;
+      font-weight: 600;
+      opacity: 0.8;
+    }
+
+    /* Result badge — two lines */
+    #result-badge {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, calc(-50% + 56px));
+      background: rgba(10, 10, 10, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 28px;
+      padding: 10px 22px 8px;
+      z-index: 20;
+      pointer-events: none;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    #verdict {
+      font-size: 16px;
+      font-weight: 700;
+      transition: color 0.2s;
+      line-height: 1.3;
+    }
+
+    #de-line {
+      font-size: 11px;
+      font-family: 'SF Mono', Courier, monospace;
+      opacity: 0.65;
+      margin-top: 2px;
+      letter-spacing: 0.3px;
+    }
+
+    /* Frozen bar */
+    #frozen-bar {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, calc(-50% - 68px));
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 16px;
+      padding: 5px 14px;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 20;
+      transition: opacity 0.25s;
+    }
+
+    #frozen-bar.visible {
+      opacity: 1;
+    }
+
+    /* Palette panel */
+    #palette-panel {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 65%, transparent);
+      padding: 14px 16px max(env(safe-area-inset-bottom), 18px);
+      z-index: 20;
+    }
+
+    .pal-group {
+      margin-bottom: 9px;
+    }
+
+    .pal-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .pal-label {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      opacity: 0.45;
+      margin-bottom: 5px;
+    }
+
+    .swatch-row {
+      display: flex;
+      gap: 5px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .swatch-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .dot {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      border: 2px solid transparent;
+      transition: transform 0.18s, border-color 0.18s, box-shadow 0.18s;
+    }
+
+    .dot.active {
+      border-color: rgba(255, 255, 255, 0.92);
+      transform: scale(1.32);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    }
+
+    canvas {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- START SCREEN -->
+  <div id="start-screen">
+    <div style="font-size:44px">🎨</div>
+    <h1>Soft Summer<br>Palette</h1>
+    <div class="palette-preview" id="preview-dots"></div>
+    <p>Point your camera at any color — see if it matches your palette and how close it is.</p>
+    <button id="start-btn">Open Camera</button>
+    <div id="error-msg"></div>
+  </div>
+
+  <!-- CAMERA SCREEN -->
+  <div id="camera-screen">
+    <video id="video" autoplay playsinline muted></video>
+    <canvas id="reader"></canvas>
+
+    <div id="top-bar">
+      <div id="color-display">
+        <div id="live-swatch"></div>
+        <div id="hex-code">#------</div>
+      </div>
+      <div id="season-tag">✦ Soft Summer</div>
+    </div>
+
+    <div id="crosshair"></div>
+
+    <div id="result-badge">
+      <div id="verdict">Point at a color ✦</div>
+      <div id="de-line"></div>
+    </div>
+
+    <div id="frozen-bar">Tap to resume</div>
+
+    <div id="palette-panel">
+      <div class="pal-group">
+        <div class="pal-label">🟢 Best Colors</div>
+        <div class="swatch-row" id="row-best"></div>
+      </div>
+      <div class="pal-group">
+        <div class="pal-label">🔶 Accent</div>
+        <div class="swatch-row" id="row-accent"></div>
+      </div>
+      <div class="pal-group">
+        <div class="pal-label">🌙 Evening</div>
+        <div class="swatch-row" id="row-evening"></div>
+      </div>
+      <div class="pal-group">
+        <div class="pal-label">🔀 Crossover</div>
+        <div class="swatch-row" id="row-crossover"></div>
+      </div>
+      <div class="pal-group">
+        <div class="pal-label">🌸 Prints</div>
+        <div class="swatch-row" id="row-prints"></div>
+      </div>
+      <div class="pal-group">
+        <div class="pal-label">🔵 Neutrals</div>
+        <div class="swatch-row" id="row-neutral"></div>
+      </div>
+      <div class="pal-group">
+        <div class="pal-label">🔴 Avoid</div>
+        <div class="swatch-row" id="row-avoid"></div>
+      </div>
+    </div>
+
+    <div id="tap-zone"></div>
+  </div>
+
+  <script>
+    // ═══════════════════════════════════════════════════════════
+    //  SOFT SUMMER — FULL 7-CATEGORY PALETTE
+    // ═══════════════════════════════════════════════════════════
+    const PAL = {
+      best: [
+        '#b5a0a8', '#9e9aaa', '#8eaaa4', '#7faaa6', '#8caa9e',
+        '#7fa8bf', '#7bb8c8', '#7fb8d0', '#8db0c8', '#8098c0',
+        '#9898c8', '#8888b8', '#9890b8', '#a898b8', '#b090b0',
+        '#c8a0a8', '#c8909a', '#b88890', '#c09098', '#b898a8',
+        '#d8b0b8', '#d0a8b0', '#c8a8b0', '#c0a0aa', '#b8a0a8',
+      ],
+      accent: [
+        '#7090c8', '#6080b8', '#5a9090', '#6a9898', '#8878a8',
+        '#9880b0', '#7a9878', '#8aa888', '#c08888', '#b88080',
+        '#6a9080', '#7a9888', '#8090b8', '#a878a0', '#78a898',
+      ],
+      evening: [
+        '#906878', '#805868', '#6070a8', '#505890', '#786070',
+        '#685060', '#406878', '#385868', '#485060', '#384050',
+        '#785060', '#684050', '#706890', '#806898', '#5a7868',
+      ],
+      crossover: [
+        '#c87890', '#c06880', '#b06878', '#9888c0', '#8878b8',
+        '#c0a888', '#b09878', '#a89880', '#b08878', '#c0b090',
+        '#9898b0', '#b0a0b0', '#a8b0a8', '#908898', '#a09888',
+      ],
+      prints: [
+        '#9898c8', '#c8a0b8', '#8aa898', '#b8a8c8', '#a8c0b8',
+        '#c0b0c0', '#98b0c0', '#b8c0a8', '#c0a8b0', '#a8b8c8',
+        '#b0a8a0', '#c8b8b0', '#a0b0a8', '#b8a0c0', '#98a8b0',
+      ],
+      neutral: [
+        '#b8b8c0', '#a8a8b0', '#989098', '#787080', '#686070',
+        '#f0f0f0', '#e8e8ec', '#e0e0e8', '#d8d8e0', '#d0d0da',
+        '#a8b0c0', '#98a8b8', '#8898b0', '#7888a0', '#688098',
+        '#b0a898', '#a89890', '#a09090', '#989090', '#908888',
+        '#606878', '#505870', '#485068', '#404858', '#384050',
+      ],
+      avoid: [
+        '#101010', '#e01020', '#d84020', '#d06020', '#d08060',
+        '#d07020', '#604030', '#c87030', '#e8e0c0', '#e8c820',
+        '#d8c010', '#b0a810', '#c8c040', '#a0b010', '#60a010',
+        '#20a030', '#00c8a0', '#00b8d0', '#2080d0', '#2050c0',
+        '#e010a0', '#c00090', '#e030b0', '#d840c0', '#c02060',
+      ]
+    };
+
+    const CAT_META = {
+      best: { emoji: '🟢', label: 'Great match!', color: '#4ade80', cls: 'c-best' },
+      accent: { emoji: '🔶', label: 'Good accent color', color: '#fb923c', cls: 'c-accent' },
+      evening: { emoji: '🌙', label: 'Evening color', color: '#a78bfa', cls: 'c-evening' },
+      crossover: { emoji: '🔀', label: 'Crossover color', color: '#2dd4bf', cls: 'c-crossover' },
+      prints: { emoji: '🌸', label: 'Works in prints', color: '#f9a8d4', cls: 'c-prints' },
+      neutral: { emoji: '🔵', label: 'Neutral', color: '#60a5fa', cls: 'c-neutral' },
+      avoid: { emoji: '🔴', label: 'Avoid', color: '#f87171', cls: 'c-avoid' },
+    };
+
+    // ═══════════════════════════════════════════════════════════
+    //  COLOR MATH
+    // ═══════════════════════════════════════════════════════════
+    function hexToRgb(h) {
+      return [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)];
+    }
+    function toHex(r, g, b) {
+      return '#' + [r, g, b].map(v => v.toString(16).padStart(2, '0')).join('');
+    }
+    function lin(c) {
+      c /= 255;
+      return c > 0.04045 ? Math.pow((c + 0.055) / 1.055, 2.4) : c / 12.92;
+    }
+    function rgbToLab(r, g, b) {
+      const rl = lin(r), gl = lin(g), bl = lin(b);
+      let x = (rl * 0.4124 + gl * 0.3576 + bl * 0.1805) / 0.95047;
+      let y = (rl * 0.2126 + gl * 0.7152 + bl * 0.0722) / 1.00000;
+      let z = (rl * 0.0193 + gl * 0.1192 + bl * 0.9505) / 1.08883;
+      const f = v => v > 0.008856 ? Math.cbrt(v) : 7.787 * v + 16 / 116;
+      return [116 * f(y) - 16, 500 * (f(x) - f(y)), 200 * (f(y) - f(z))];
+    }
+    function dE(a, b) {
+      return Math.sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2 + (a[2] - b[2]) ** 2);
+    }
+
+    // Pre-compute Lab for all categories
+    const LAB = {};
+    for (const [cat, cols] of Object.entries(PAL)) {
+      LAB[cat] = cols.map(h => { const [r, g, b] = hexToRgb(h); return { h, lab: rgbToLab(r, g, b) }; });
+    }
+
+    function classify(r, g, b) {
+      const sLab = rgbToLab(r, g, b);
+
+      // Find best match in every category
+      let globalBest = { dist: Infinity, hex: null, cat: null };
+
+      const results = {};
+      for (const cat of Object.keys(PAL)) {
+        let best = { dist: Infinity, hex: null };
+        for (const { h, lab } of LAB[cat]) {
+          const d = dE(sLab, lab);
+          if (d < best.dist) { best.dist = d; best.hex = h; }
+        }
+        results[cat] = best;
+        if (best.dist < globalBest.dist) { globalBest = { dist: best.dist, hex: best.hex, cat }; }
+      }
+
+      const winCat = globalBest.cat;
+      const winDist = Math.round(globalBest.dist);
+      const meta = CAT_META[winCat];
+
+      // For avoid: show distance to nearest NON-avoid category too
+      let nearestGoodCat = null, nearestGoodDist = Infinity;
+      if (winCat === 'avoid') {
+        for (const cat of Object.keys(PAL)) {
+          if (cat === 'avoid') continue;
+          if (results[cat].dist < nearestGoodDist) {
+            nearestGoodDist = results[cat].dist;
+            nearestGoodCat = cat;
+          }
+        }
+      }
+
+      const catDisplayNames = {
+        best: 'Best Colors', accent: 'Accent', evening: 'Evening',
+        crossover: 'Crossover', prints: 'Prints', neutral: 'Neutrals', avoid: 'Avoid'
+      };
+
+      let deLine, verdict;
+
+      if (winCat === 'avoid') {
+        verdict = `${meta.emoji} ${meta.label}`;
+        const nearestName = catDisplayNames[nearestGoodCat] || nearestGoodCat;
+        deLine = `ΔE ${winDist} from palette · nearest: ${nearestName} (ΔE ${Math.round(nearestGoodDist)})`;
+      } else {
+        verdict = `${meta.emoji} ${meta.label}`;
+        deLine = `ΔE ${winDist} · ${catDisplayNames[winCat]}`;
+      }
+
+      return {
+        cat: winCat,
+        verdict,
+        deLine,
+        color: meta.color,
+        cls: meta.cls,
+        closestHex: globalBest.hex,
+      };
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    //  BUILD SWATCHES
+    // ═══════════════════════════════════════════════════════════
+    function buildRow(id, colors) {
+      const row = document.getElementById(id);
+      colors.forEach(h => {
+        const d = document.createElement('div');
+        d.className = 'dot'; d.style.background = h; d.dataset.hex = h;
+        row.appendChild(d);
+      });
+    }
+    buildRow('row-best', PAL.best);
+    buildRow('row-accent', PAL.accent);
+    buildRow('row-evening', PAL.evening);
+    buildRow('row-crossover', PAL.crossover);
+    buildRow('row-prints', PAL.prints);
+    buildRow('row-neutral', PAL.neutral);
+    buildRow('row-avoid', PAL.avoid);
+
+    // Preview dots on start screen
+    const previewEl = document.getElementById('preview-dots');
+    [...PAL.best.slice(0, 5), ...PAL.accent.slice(0, 5)].forEach(h => {
+      const d = document.createElement('div');
+      d.className = 'preview-dot'; d.style.background = h;
+      previewEl.appendChild(d);
+    });
+
+    // ═══════════════════════════════════════════════════════════
+    //  CAMERA
+    // ═══════════════════════════════════════════════════════════
+    const startScreen = document.getElementById('start-screen');
+    const cameraScreen = document.getElementById('camera-screen');
+    const video = document.getElementById('video');
+    const reader = document.getElementById('reader');
+    const rCtx = reader.getContext('2d', { willReadFrequently: true });
+    const liveSwatch = document.getElementById('live-swatch');
+    const hexCode = document.getElementById('hex-code');
+    const verdict = document.getElementById('verdict');
+    const deLine = document.getElementById('de-line');
+    const frozenBar = document.getElementById('frozen-bar');
+    const crosshair = document.getElementById('crosshair');
+    const startBtn = document.getElementById('start-btn');
+    const errMsg = document.getElementById('error-msg');
+    const tapZone = document.getElementById('tap-zone');
+
+    let frozen = false, streaming = false;
+    let lastR = 180, lastG = 160, lastB = 170;
+
+    startBtn.addEventListener('click', async () => {
+      startBtn.disabled = true;
+      startBtn.textContent = 'Starting…';
+      errMsg.classList.remove('show');
+      try {
+        let stream;
+        try {
+          stream = await navigator.mediaDevices.getUserMedia({
+            video: { facingMode: { ideal: 'environment' } }, audio: false
+          });
+        } catch {
+          stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+        }
+        video.srcObject = stream;
+        await new Promise((res, rej) => { video.onloadedmetadata = res; video.onerror = rej; });
+        await video.play();
+        reader.width = video.videoWidth || 640;
+        reader.height = video.videoHeight || 480;
+        startScreen.style.display = 'none';
+        cameraScreen.classList.add('active');
+        streaming = true;
+        loop();
+      } catch (e) {
+        startBtn.disabled = false;
+        startBtn.textContent = 'Open Camera';
+        errMsg.textContent = 'Camera access denied. Please allow camera permissions and try again.';
+        errMsg.classList.add('show');
+      }
+    });
+
+    tapZone.addEventListener('click', () => {
+      frozen = !frozen;
+      frozenBar.classList.toggle('visible', frozen);
+      if (!frozen) updateUI(lastR, lastG, lastB);
+    });
+
+    function sampleCenter() {
+      const w = reader.width, h = reader.height;
+      rCtx.drawImage(video, 0, 0, w, h);
+      const sz = 8, cx = Math.floor(w / 2), cy = Math.floor(h / 2);
+      const px = rCtx.getImageData(cx - sz, cy - sz, sz * 2, sz * 2).data;
+      let r = 0, g = 0, b = 0, n = 0;
+      for (let i = 0; i < px.length; i += 4) { r += px[i]; g += px[i + 1]; b += px[i + 2]; n++; }
+      return [Math.round(r / n), Math.round(g / n), Math.round(b / n)];
+    }
+
+    function updateUI(r, g, b) {
+      const hex = toHex(r, g, b);
+      liveSwatch.style.background = hex;
+      hexCode.textContent = hex.toUpperCase();
+
+      const res = classify(r, g, b);
+      verdict.textContent = res.verdict;
+      verdict.style.color = res.color;
+      deLine.textContent = res.deLine;
+
+      crosshair.className = res.cls;
+
+      document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+      if (res.closestHex) {
+        const el = document.querySelector(`.dot[data-hex="${res.closestHex}"]`);
+        if (el) {
+          el.classList.add('active');
+          el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+      }
+    }
+
+    function loop() {
+      if (!streaming || frozen) { requestAnimationFrame(loop); return; }
+      try {
+        const [r, g, b] = sampleCenter();
+        lastR = r; lastG = g; lastB = b;
+        updateUI(r, g, b);
+      } catch (e) { }
+      requestAnimationFrame(loop);
+    }
+  </script>
+</body>
+
+</html>
